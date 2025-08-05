@@ -1,0 +1,31 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:padding="24dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bgimage">
+
+    <EditText android:id="@+id/etName"
+        android:hint="Email" android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"/>
+
+    <EditText android:id="@+id/etPassword"
+        android:hint="Password" android:inputType="textPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"/>
+
+    <Button android:id="@+id/btnLogin"
+        android:text="Login" android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"/>
+
+    <TextView
+        android:id="@+id/tvSignupRedirect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="40dp"
+        android:paddingHorizontal="75dp"
+        android:text="Don't have an account? Sign up"
+        android:textColor="@android:color/holo_blue_dark" />
+</LinearLayout>
