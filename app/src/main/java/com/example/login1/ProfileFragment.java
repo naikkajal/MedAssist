@@ -11,6 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import android.content.Intent;
+import android.widget.Button;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -36,11 +38,25 @@ public class ProfileFragment extends Fragment {
         mobileTextView = view.findViewById(R.id.mobileTextView);
         dobTextView = view.findViewById(R.id.dobTextView);
         bloodGroupTextView = view.findViewById(R.id.bloodGroupTextView);
+        Button btnLogout = view.findViewById(R.id.btnLogout);
+        btnLogout.setOnClickListener(v -> {
+            // Clear SharedPreferences
+            SharedPreferences prefs = getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.clear();
+            editor.apply();
+
+            // Go back to LoginActivity
+            Intent intent = new Intent(getActivity(), LoginActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK); // Clear backstack
+            startActivity(intent);
+        });
 
         // Fetch and display user data
         fetchUserDetails();
 
         return view;
+
     }
 
     private void fetchUserDetails() {
