@@ -17,7 +17,7 @@ Reminder: Set reminders for taking medicines.
 
 Profile: Manage user information.
 
-3. Description Page: Displays full details of the medicine (name, uses, side effects, etc.).
+3.Description Page: Displays full details of the medicine (name, uses, side effects, etc.).
 
 
 Tech Stack:
