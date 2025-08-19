@@ -3,7 +3,7 @@ MedAssist - Android App
 MedAssist is a Java-based Android application that helps users search medicines, view details, save them, and set reminders.
 
 
-Features:
+🚀 Features:
 
 1.Authentication: Login & Signup using MySQL database.
 
@@ -20,7 +20,7 @@ Profile: Manage user information.
 3.Description Page: Displays full details of the medicine (name, uses, side effects, etc.).
 
 
-Tech Stack:
+🛠️ Tech Stack:
 
 Language: Java
 
@@ -29,7 +29,7 @@ IDE: Android Studio
 Backend: Spring Boot (for APIs)
 
 
-Screens:
+📸 Screens:
 
 Login / Signup
 
@@ -38,7 +38,7 @@ Bottom Navigation (Search | Saved | Reminder | Profile)
 Medicine Details with Save Reminder button
 
 
-How It Works:
+⚡How It Works:
 
 User signs up or logs in.
 
