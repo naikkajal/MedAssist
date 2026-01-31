@@ -14,6 +14,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import android.Manifest;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -21,9 +26,23 @@ public class LoginActivity extends AppCompatActivity {
     Button btnLogin;
     TextView tvSignupRedirect;
 
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        
+        // 🔒 Force Light Mode (Disable Dark Mode completely)
+        androidx.appcompat.app.AppCompatDelegate.setDefaultNightMode(androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO);
+
+        // Check if user is already logged in
+        SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        if (prefs.getString("userId", null) != null) {
+            Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+            startActivity(intent);
+            finish();
+            return;
+        }
+
+        requestNotificationPermission();
+
         setContentView(R.layout.activity_login);
 
         etName = findViewById(R.id.etName);
@@ -51,10 +70,13 @@ public class LoginActivity extends AppCompatActivity {
                         LoginResponse loginResponse = response.body();
 
                         // ✅ Save to SharedPreferences
-                        SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
                         SharedPreferences.Editor editor = prefs.edit();
                         editor.putString("userId", loginResponse.getUserid());
                         editor.putString("name", loginResponse.getName());
+                        editor.putString("email", loginResponse.getEmail());
+                        editor.putString("mobile", loginResponse.getMobile());
+                        editor.putString("dob", loginResponse.getDob());
+                        editor.putString("bloodgroup", loginResponse.getBloodGroup());
                         editor.apply();
 
                         // ✅ Start HomeActivity
@@ -82,5 +104,13 @@ public class LoginActivity extends AppCompatActivity {
             Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
             startActivity(intent);
         });
+    }
+
+    private void requestNotificationPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.POST_NOTIFICATIONS}, 101);
+            }
+        }
     }
 }

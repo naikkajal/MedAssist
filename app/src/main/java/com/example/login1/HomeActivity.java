@@ -19,10 +19,6 @@ public class HomeActivity extends AppCompatActivity {
 
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
 
-        // Set default selected item and load default fragment
-        bottomNavigationView.setSelectedItemId(R.id.nav_search);
-        loadFragment(new SearchFragment());
-
         bottomNavigationView.setOnItemSelectedListener(item -> {
             int id = item.getItemId();
             Fragment selected = null;
@@ -44,6 +40,35 @@ public class HomeActivity extends AppCompatActivity {
             return false;
         });
 
+
+        // Handle initial navigation
+        handleIntent(getIntent());
+        
+        // Request notification permission on startup (Android 13+)
+        PermissionHelper.requestNotificationPermission(this);
+    }
+
+    @Override
+    protected void onNewIntent(android.content.Intent intent) {
+        super.onNewIntent(intent);
+        setIntent(intent);
+        handleIntent(intent);
+    }
+
+    private void handleIntent(android.content.Intent intent) {
+        if (intent == null) return;
+        
+        String target = intent.getStringExtra("targetFragment");
+        android.util.Log.d("HomeActivity", "handleIntent target: " + target);
+        
+        if ("reminder".equals(target)) {
+            android.widget.Toast.makeText(this, "Opening Reminders...", android.widget.Toast.LENGTH_SHORT).show();
+            bottomNavigationView.setSelectedItemId(R.id.nav_reminder);
+            loadFragment(new ReminderFragment());
+        } else {
+            bottomNavigationView.setSelectedItemId(R.id.nav_search);
+            loadFragment(new SearchFragment());
+        }
     }
 
     private void loadFragment(Fragment fragment) {

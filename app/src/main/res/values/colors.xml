@@ -1,6 +1,18 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="navy_blue">#95B4D1</color>
+    
+    <!-- Semantic Colors (Restored Original) -->
+    <color name="app_primary">#1565C0</color> <!-- Original Deep Blue -->
+    <color name="app_on_primary">#FFFFFF</color>
+    <color name="app_secondary">#5E35B1</color> <!-- Original Deep Purple -->
+    <color name="app_background">#F5F7FA</color> <!-- Placeholder, will use Drawables in layouts -->
+    <color name="app_surface">#FFFFFF</color>
+    
+    <color name="text_primary">#000000</color> <!-- Pure Black as requested "normal" -->
+    <color name="text_secondary">#666666</color> <!-- Original Gray -->
+    <color name="text_hint">#808080</color>
+    <color name="divider_color">#E0E0E0</color>
+    
+    <color name="navy_blue">#95B4D1</color> <!-- Keeping legacy just in case -->
 </resources>

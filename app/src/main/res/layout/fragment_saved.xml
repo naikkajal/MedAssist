@@ -1,44 +1,52 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:padding="16dp"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="@drawable/bgimage">
 
+    <!-- ===== HEADER ===== -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:layout_height="56dp"
+        android:background="@android:color/white"
+        android:gravity="center"
+        android:elevation="6dp">
 
-        <!-- Header Row -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingVertical="30dp"
-            android:paddingHorizontal="20dp">
-
-            <ImageView
-                android:layout_width="28dp"
-                android:layout_height="34dp"
-                android:src="@drawable/ic_reminder"
-                android:layout_marginEnd="12dp"
-                android:layout_marginTop="4dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Reminders"
-                android:textSize="30sp"
-                android:textColor="#000000"
-                android:layout_gravity="center_vertical"/>
-        </LinearLayout>
-
-        <!-- Container for cards -->
-        <LinearLayout
-            android:id="@+id/savedContainer"
-            android:orientation="vertical"
-            android:layout_width="match_parent"
+        <TextView
+            android:text="MedAssist"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/app_primary"
+            android:letterSpacing="0.06"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
     </LinearLayout>
-</ScrollView>
+
+    <!-- ===== SCROLL AREA ===== -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/savedContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:text="Saved Medicines"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <!-- 🔥 Cards will be added here dynamically 🔥 -->
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

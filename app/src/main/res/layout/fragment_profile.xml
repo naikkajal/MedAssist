@@ -1,100 +1,198 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bgimage">
+    android:background="@color/white">
 
+    <!-- 🔹 FIXED HEADER (DOES NOT SCROLL) -->
     <LinearLayout
+        android:id="@+id/topHeader"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginBottom="12dp"
-        android:paddingHorizontal="15dp">
-
-        <ImageView
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:src="@drawable/ic_person"
-            android:layout_marginEnd="12dp"
-            android:layout_marginTop="40dp"/>
-        <TextView
-
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Your Profile"
-            android:textSize="30sp"
-            android:textColor="#000000"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="8dp"/>
-    </LinearLayout>
-        <TextView
-            android:id="@+id/nameTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Name:"
-            android:textSize="18sp"
-            android:layout_marginTop="30dp"
-            android:textColor="#000000"
-            android:layout_marginBottom="8dp"
-            android:paddingHorizontal="30dp"/>
+        android:layout_height="56dp"
+        android:background="@android:color/white"
+        android:gravity="center"
+        android:elevation="6dp">
 
         <TextView
-            android:id="@+id/emailTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Email:"
-            android:textSize="18sp"
-            android:textColor="#000000"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="8dp"
-            android:paddingHorizontal="30dp"/>
-
-        <TextView
-            android:id="@+id/mobileTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Mobile:"
-            android:textSize="18sp"
-            android:textColor="#000000"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="8dp"
-            android:paddingHorizontal="30dp"/>
-
-        <TextView
-            android:id="@+id/dobTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="DOB:"
-            android:textSize="18sp"
-            android:textColor="#000000"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="8dp"
-            android:paddingHorizontal="30dp"/>
-
-        <TextView
-            android:id="@+id/bloodGroupTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Blood Group:"
-            android:textSize="18sp"
-            android:textColor="#000000"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="8dp"
-            android:paddingHorizontal="30dp"/>
-
-        <Button
-            android:id="@+id/btnLogout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Logout"
-            android:layout_marginTop="60dp"
-            android:paddingHorizontal="30dp"
-            android:layout_gravity="center" />
-
+            android:text="MedAssist"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/app_primary"
+            android:letterSpacing="0.06"/>
     </LinearLayout>
-</ScrollView>
+
+    <!-- 🔹 SCROLLABLE CONTENT -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/topHeader"
+        android:fillViewport="true"
+        android:background="@color/white">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- Background Image -->
+            <ImageView
+                android:id="@+id/bgHeader"
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/profilebgimage" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <!-- Profile Card -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="60dp"
+                    android:background="@drawable/profile_card_bg"
+                    android:elevation="8dp"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <!-- Your Profile Header -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingBottom="16dp">
+
+                        <ImageView
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:src="@drawable/ic_person"
+                            app:tint="#5C6BC0" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:fontFamily="sans-serif-medium"
+                            android:text="Your Profile"
+                            android:textColor="#333333"
+                            android:textSize="22sp" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#EEEEEE" />
+
+                    <!-- Personal Information -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="12dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="Personal Information"
+                        android:textColor="#444444"
+                        android:textSize="18sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rounded_light_bg"
+                        android:orientation="vertical"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="5dp">
+
+                        <LinearLayout style="@style/ProfileInfoRow">
+                            <ImageView style="@style/ProfileInfoIcon" android:src="@drawable/ic_person" />
+                            <TextView style="@style/ProfileInfoLabel" android:text="Name" />
+                            <TextView android:id="@+id/tvProfileName" style="@style/ProfileInfoValue" android:text="Loading..." />
+                        </LinearLayout>
+
+                        <LinearLayout style="@style/ProfileInfoRow">
+                            <ImageView style="@style/ProfileInfoIcon" android:src="@drawable/ic_email" />
+                            <TextView style="@style/ProfileInfoLabel" android:text="Email" />
+                            <TextView android:id="@+id/tvProfileEmail" style="@style/ProfileInfoValue" android:text="Loading..." />
+                        </LinearLayout>
+
+                        <LinearLayout style="@style/ProfileInfoRow">
+                            <ImageView style="@style/ProfileInfoIcon" android:src="@drawable/ic_phone" />
+                            <TextView style="@style/ProfileInfoLabel" android:text="Mobile" />
+                            <TextView android:id="@+id/tvProfileMobile" style="@style/ProfileInfoValue" android:text="Loading..." />
+                        </LinearLayout>
+
+                        <LinearLayout style="@style/ProfileInfoRow">
+                            <ImageView style="@style/ProfileInfoIcon" android:src="@drawable/ic_calendar" />
+                            <TextView style="@style/ProfileInfoLabel" android:text="Date of Birth" />
+                            <TextView android:id="@+id/tvProfileDob" style="@style/ProfileInfoValue" android:text="Loading..." />
+                        </LinearLayout>
+
+                        <LinearLayout style="@style/ProfileInfoRow" android:layout_marginBottom="5dp">
+                            <ImageView style="@style/ProfileInfoIcon" android:src="@drawable/ic_blood" />
+                            <TextView style="@style/ProfileInfoLabel" android:text="Blood Group" />
+                            <TextView android:id="@+id/tvProfileBloodGroup" style="@style/ProfileInfoValue" android:text="Loading..." />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- Account Section -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/rounded_light_bg"
+                        android:orientation="vertical"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="5dp">
+
+                        <LinearLayout style="@style/ProfileInfoRow">
+                            <ImageView style="@style/ProfileInfoIcon" android:src="@drawable/ic_person" />
+                            <TextView style="@style/ProfileInfoLabel" android:text="Account" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="#E0E0E0"
+                            android:layout_marginHorizontal="10dp" />
+
+                        <LinearLayout
+                            android:id="@+id/btnEditProfile"
+                            style="@style/ProfileClickableRow">
+                            <ImageView style="@style/ProfileInfoIcon" android:src="@drawable/ic_edit_doc" />
+                            <TextView style="@style/ProfileInfoLabel" android:text="Edit Profile" />
+                            <ImageView style="@style/ProfileChevron" android:src="@drawable/ic_chevron_right" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/btnChangePassword"
+                            style="@style/ProfileClickableRow"
+                            android:layout_marginBottom="5dp">
+                            <ImageView style="@style/ProfileInfoIcon" android:src="@drawable/ic_lock" />
+                            <TextView style="@style/ProfileInfoLabel" android:text="Change Password" />
+                            <ImageView style="@style/ProfileChevron" android:src="@drawable/ic_chevron_right" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- Logout Button -->
+                    <Button
+                        android:id="@+id/btnLogout"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:layout_marginTop="30dp"
+                        android:backgroundTint="#2962FF"
+                        android:text="Logout"
+                        android:textAllCaps="false"
+                        android:textSize="18sp"
+                        app:cornerRadius="28dp" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>

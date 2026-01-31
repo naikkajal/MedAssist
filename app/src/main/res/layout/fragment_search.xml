@@ -1,19 +1,46 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:padding="16dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="@drawable/bgimage">
 
-    <SearchView
-        android:id="@+id/searchView"
+    <!-- HEADER -->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:queryHint="Search here" />
+        android:layout_height="56dp"
+        android:background="@color/app_surface"
+        android:gravity="center"
+        android:elevation="6dp">
 
-    <ListView
-        android:id="@+id/listView"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MedAssist"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/app_primary"
+            android:letterSpacing="0.06"/>
+    </LinearLayout>
+
+    <!-- CONTENT AREA -->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <SearchView
+            android:id="@+id/searchView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:queryHint="Search medicine" />
+
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="8dp" />
+
+    </LinearLayout>
+
 </LinearLayout>
