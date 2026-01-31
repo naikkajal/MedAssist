@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1565C0"
+    android:padding="24dp">
+
+    <!-- Alarm Icon -->
+    <ImageView
+        android:id="@+id/ivAlarmIcon"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:src="@android:drawable/ic_lock_idle_alarm"
+        android:tint="@android:color/white"/>
+
+    <!-- Alarm Message -->
+    <TextView
+        android:id="@+id/tvAlarmMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ivAlarmIcon"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:text="Time to take your medicine!"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center"/>
+
+    <!-- Medicine Name -->
+    <TextView
+        android:id="@+id/tvMedicineName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvAlarmMessage"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="Medicine Name"
+        android:textColor="@android:color/white"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:gravity="center"/>
+
+    <!-- Current Time Display -->
+    <TextView
+        android:id="@+id/tvCurrentTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvMedicineName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:textColor="#BBDEFB"
+        android:textSize="48sp"
+        android:textStyle="bold"/>
+
+    <!-- Buttons Container -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="40dp"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <!-- Dismiss Button -->
+        <Button
+            android:id="@+id/btnDismiss"
+            android:layout_width="280dp"
+            android:layout_height="64dp"
+            android:text="DISMISS"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:backgroundTint="#4CAF50"
+            android:textColor="@android:color/white"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Snooze Button -->
+        <Button
+            android:id="@+id/btnSnooze"
+            android:layout_width="280dp"
+            android:layout_height="64dp"
+            android:text="SNOOZE (5 MIN)"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:backgroundTint="#FF9800"
+            android:textColor="@android:color/white"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
