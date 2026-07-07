@@ -17,5 +17,28 @@ public class CreateUserRequest {
         this.bloodGroup = bloodGroup;
     }
 
-    // Add getters if needed
+    // Getters - Required for Retrofit/Gson to serialize to JSON
+    public String getName() {
+        return name;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getDob() {
+        return dob;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public String getBloodGroup() {
+        return bloodGroup;
+    }
 }

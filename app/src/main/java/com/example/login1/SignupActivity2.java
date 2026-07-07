@@ -55,6 +55,14 @@ public class SignupActivity2 extends AppCompatActivity {
             if (bloodGroup == null) bloodGroup = "";
 
             CreateUserRequest request = new CreateUserRequest(name, password, dob, email, mobile, bloodGroup);
+            
+            // Log the data being sent (for debugging)
+            android.util.Log.d("SignupActivity2", "Sending signup request:");
+            android.util.Log.d("SignupActivity2", "Name: " + name);
+            android.util.Log.d("SignupActivity2", "DOB: " + dob);
+            android.util.Log.d("SignupActivity2", "Blood Group: " + bloodGroup);
+            android.util.Log.d("SignupActivity2", "Email: " + email);
+            android.util.Log.d("SignupActivity2", "Mobile: " + mobile);
 
             ApiService apiService = RetrofitClient.getInstance().create(ApiService.class);
             Call<CreateUserResponse> call = apiService.signupUser(request);
